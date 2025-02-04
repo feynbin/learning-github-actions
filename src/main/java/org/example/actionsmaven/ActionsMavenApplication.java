@@ -10,4 +10,8 @@ public class ActionsMavenApplication {
         SpringApplication.run(ActionsMavenApplication.class, args);
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

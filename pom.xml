@@ -42,6 +42,19 @@
         </dependency>
     </dependencies>
 
+    <!-- 添加本地私库配置 -->
+    <repositories>
+        <repository>
+            <id>local-repo</id>
+            <url>http://192.168.232.1:8081/repository/maven</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>local-repo</id>
+            <url>http://192.168.232.1:8081/repository/maven</url>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <plugins>
             <plugin>
