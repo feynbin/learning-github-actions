@@ -3,25 +3,19 @@ name: Java CI with Maven
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build_and_package:
     name: Build and Package
-    runs-on: ubuntu-24.04-slim
+    runs-on: ubuntu-24.04
     steps:
-      # 检出代码
       - uses: checkout@v4
-
-      # 设置 JDK 21
       - name: Set up JDK 21
         uses: setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
-        env:
-          HTTP_PROXY: 'http://github.moeyy.xyz'
-          HTTPS_PROXY: 'https://github.moeyy.xyz'
       - name: Build  with Maven
         run: mvn -B package --file pom.xml
