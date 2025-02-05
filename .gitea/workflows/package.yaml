@@ -11,22 +11,14 @@ jobs:
     runs-on: ubuntu-24.04-slim
     steps:
       # 检出代码
-      - uses: https://gitea.com/actions/checkout@v4
+      - uses: http://192.168.108.129:3000/feynbin/checkout@v4
 
       # 设置 JDK 21
       - name: Set up JDK 21
-        uses: https://gitea.com/actions/setup-java@v4
+        uses: http://192.168.108.129:3000/feynbin/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: maven # 启用 Maven 依赖缓存
-
-      # 设置 Maven
-      - name: Set up Maven
-        uses: https://gitea.com/stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
-
-      # 构建项目
-      - name: Build and Package with Maven
-        run: mvn clean package
+          cache: maven
+      - name: Build  with Maven
+        run: mvn -B package --file pom.xml
