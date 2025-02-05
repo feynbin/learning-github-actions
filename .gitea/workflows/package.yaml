@@ -20,5 +20,8 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+        env:
+          HTTP_PROXY: 'http://github.moeyy.xyz'
+          HTTPS_PROXY: 'https://github.moeyy.xyz'
       - name: Build  with Maven
         run: mvn -B package --file pom.xml
